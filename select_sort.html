@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* div {margin-left: 40px;margin-top: 20px} */
+        body {  background-image: url(img_new\web.jpg);} 
+        #buttons {margin-left: 40px;margin-top: 20px}
+        text {fill: black;}
+        rect {fill: rgb(149, 255, 0);}
+        .unsorted{ fill:rgb(0, 0, 0)}
+        .sorted {fill: rgb(10, 223, 67);}
+        .min {fill: rgb(182, 50, 50);;}
+        .testing {fill: rgb(0, 255, 119);}
+
+
+    </style>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="http://d3js.org/d3.v4.min.js"></script>
+    <title>Selection Sort</title>
+  </head>
+  <body style="background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);">
+    <div>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);">
+            <div class="container-fluid" style="background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);">
+              <a class="navbar-brand" href="index.html" >PBL</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown" align="center">
+                <ul class="navbar-nav" align="center">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="visualize.html">Visualisers</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Algorithms
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <li><a class="dropdown-item" href="bubble_sort.html">Bubble Sort</a></li>
+                      <li><a class="dropdown-item" href="select_sort.html">Selection Sort</a></li>
+                      <li><a class="dropdown-item" href="insert_sort.html">Insertion Sort</a></li>
+                      <li><a class="dropdown-item" href="merge_sort.html">Merge Sort</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+          
+      
+          <h2 align="center">Selection Sort</h2>
+          <p align="center">Selection sort is a simple sorting algorithm. This sorting algorithm is an in-place comparison-based algorithm in which the list is divided into two parts, </p>
+          
+             <p align="center">the sorted part at the left end and the unsorted part at the right end. Initially, the sorted part is empty and the unsorted part is the entire list..</p>
+     
+<p align="center">     Time Complexity :	 <br>
+    Best	O(n<sup>2</sup>)<br>
+    Worst	O(n<sup>2</sup>)<br>
+    Average	O(n<sup>2</sup>)<br>
+    <br>
+    Space Complexity :	O(1)<br>
+    <br>
+
+    <p align="center">Selection Sort Algorithm</p>
+    <p><pre style="background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+     width: 15rem;  margin: auto;
+     width: 50%;
+     font-weight: 900;
+     
+     ">
+    selectionSort(array, size)
+     repeat (size - 1) times
+     set the first unsorted element as the minimum
+     for each of the unsorted elements
+       if element < currentMinimum
+       set element as new minimum
+     swap minimum with first unsorted position
+   end selectionSort
+     </pre></p> 
+             <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="Styling.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+<div class="sh" style="width: 15rem;  margin: auto;
+width: 50%;
+padding: 10px;
+background-image: linear-gradient(to top, #d5d4d0 0%, #d5d4d0 1%, #eeeeec 31%, #efeeec 75%, #e9e9e7 100%);
+border-style: dashed;
+
+"></div>
+<div class="sh"></div>
+
+<div style="width: 15rem;  margin: auto;
+width: 60%;
+padding: 10px;
+">
+<div id="buttons" >
+    <input id= "array" type="text" placeholder="Please Enter Numbers separated by space " size="110">
+           <br><br>
+           <button id="submit" type="button"  class="btn btn-secondary" onclick="submit()">Submit</button>
+           <button type="button"  class="btn btn-secondary" onclick="selectionSort()" >select Sort</button>
+           <br><br>
+           <button type="button"  class="btn btn-secondary" onclick="reset()">Reset</button>
+           <button type="button"  class="btn btn-secondary" onClick="window.location.reload();" style="background-color: rgb(63, 63, 63);">Clear</button>
+</div>
+
+</div>
+</div>
+
+
+<script>
+
+    var count = 9+1,
+        durationTime = 500,
+        array,
+        unsortedArray,
+        sortedArray = [],
+        stop = false,
+        steps = 0;
+    
+    var margin = {top: 40, right: 40, bottom: 180, left: 40},
+        width = 960 - margin.left - margin.right,
+        height = 500 - margin.top - margin.bottom;
+    
+    var barWidth = width/count;
+    
+    var x = d3.scaleLinear()
+        .domain([0,count])
+        .range([0, width]);
+    
+    var svg = d3.select('.sh').append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+      
+    var rects;
+    var labels;
+        
+    function submit(){
+    
+        document.getElementById("submit").disabled = true;
+    
+        var array2 = document.getElementById("array");
+    array2 = array2.value.split(" ").map(function (item) {
+    return parseInt(item, 10);
+    });
+        console.log(array2);
+        array = array2;
+        unsortedArray = [...array];
+    
+        rects = svg.append("g")
+        .attr("transform", "translate(" + barWidth + ",2)")
+        .selectAll("rect")
+        .data(unsortedArray)
+        .enter().append("rect")
+    
+    rects.attr("id", function(d) {return "rect" + d})
+        .attr("transform", function(d, i) {return "translate(" + (x(i) - barWidth) + ",0)"})
+        .attr("width", barWidth *.9)
+        .attr("height", function(d) {return d*barWidth/3})
+        rects.attr("y",function(d){ return 400-d*barWidth/3; });
+    
+    labels = svg.selectAll("text")
+                .data(unsortedArray)
+                .enter().append("text")
+    
+    labels.attr("id", function(d) {return "text" + d})
+        .attr("transform", function(d, i) {return "translate(" + x(i) + ",0)"})
+        .attr("class","unsorted")
+        .html(function(d) {return d;})
+    }
+    
+    function reset() {
+        unsortedArray = [...array];
+        sortedArray = [];
+        stop = false;
+    
+        d3.select("#counter").html(steps = 0)
+    
+        labels.attr("class", "")                
+            .transition().duration(2000)
+            .attr("transform", function(d, i) {return "translate(" + (x(i)) + ", 0)"})  
+            .attr("class","unsorted")              
+        
+        rects.attr("class", "")                
+            .transition().duration(2000)
+            .attr("transform", function(d, i) {return "translate(" + (x(i-1)) + ", 0)"})
+        
+    
+    rects.attr("id", function(d) {return "rect" + d})
+        .attr("transform", function(d, i) {return "translate(" + (x(i) - barWidth) + ",0)"})
+        .attr("width", barWidth *.9)
+        .attr("height", function(d) {return d*barWidth/3})
+        rects.attr("y",function(d){ return 400-d*barWidth/3; });
+    }
+    
+    
+    function selectionSort() {
+        var min = count,
+            spliceIndex,
+            i = 0;
+    
+        function findMin() {
+            if (stop) return stop = false;
+    
+            d3.timeout(function() {
+            
+                if (i<=unsortedArray.length) {
+    
+                    d3.select("#rect" + unsortedArray[i]).attr("class", "testing")
+    
+                    d3.timeout(function() {
+                        
+                        d3.select("#rect" + unsortedArray[i]).attr("class", "")
+    
+                        if (unsortedArray[i] < min) {
+                            d3.select("#rect" + unsortedArray[i]).attr("class", "min")
+                            d3.select("#rect" + min).attr("class", "")
+                            min = unsortedArray[spliceIndex = i]
+                        }
+    
+                        d3.select("#counter").html(++steps);
+                        i++;
+    
+                        d3.timeout(function() {return findMin()}, durationTime/2);
+    
+                    }, durationTime/2);
+    
+                } else {
+    
+                    sortedArray.push(min);
+                    unsortedArray.splice(spliceIndex,1);
+    
+                    d3.select("#counter").html(++steps);
+    
+                rects.transition().duration(durationTime * 4)
+                    .attr("transform", function(d) {
+                        var xVal = sortedArray.indexOf(d) > -1 ? sortedArray.indexOf(d) : unsortedArray.indexOf(d) + sortedArray.length;
+                        return "translate(" + x(xVal - 1) + ",0)" 
+                    })
+    
+                labels
+                    .classed("sorted", function(d) {return sortedArray.indexOf(d) == d - 1;})
+                    .transition().duration(durationTime * 4)
+                    .attr("transform", function(d) {
+                        var xVal = sortedArray.indexOf(d) > -1 ? sortedArray.indexOf(d) : unsortedArray.indexOf(d) + sortedArray.length;
+                        return "translate(" + x(xVal) + ",0)" 
+                    })
+    
+                    rects.attr("class", "")
+    
+                    d3.timeout(function() {
+                        if (unsortedArray.length > 0) selectionSort();
+                    }, durationTime);
+                    return;
+                }                
+            })
+        }
+        findMin();
+    }
+    
+    
+    function slide(d, i) {
+        d3.select("#text" + d)
+            .transition().duration(durationTime)
+            .attr("transform", function(d) {return "translate(" + (x(i)) + ", 0)"})
+    
+        d3.select("#rect" + d)
+            .transition().duration(durationTime)
+            .attr("transform", function(d) {return "translate(" + (x(i-1)) + ", 0)"})                
+    }
+    
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+    <div class="card text-center">
+        <div class="card-header">
+          Algorithm Visualizer
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">This is a Project made by PICT students for PBL</h5>
+          <p class="card-text">Thanks for Checking this out</p>
+
+        </div>
+   
+      </div>
+</body>
+</html>
